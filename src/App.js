@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom"; //Adding routing configuration
 
-import CreateTodo from "./component/create-todo.component";
-import EditTodo from "./component/edit-todo.component";
-import TodosList from "./component/todos-list.component";
+import Create from "./component/create.component";
+import Edit from "./component/edit.component";
+import List from "./component/list.component";
 
 import logo from "./logo.png";
 
@@ -29,12 +29,12 @@ class App extends Component {
               <ul className="navbar-nav mr-auto">
                 <li className="navbar-item">
                   <Link to="/" className="nav-link">
-                    Todos
+                    List
                   </Link>
                 </li>
                 <li className="navbar-item">
                   <Link to="/create" className="nav-link">
-                    Create Todo
+                    Create
                   </Link>
                 </li>
               </ul>
@@ -44,10 +44,10 @@ class App extends Component {
 
           {/* Each "Route" element needs at least the "path" and the "component" (connects the path with a 
           component) attributes; they are used to add the configuration settings for each route */}
-          <Route path="/" exact component={TodosList} />
+          <Route path="/" exact component={List} />
           {/* The "edit" route accepts a parameter (id) as part of the URL */}
-          <Route path="/edit/:id" exact component={EditTodo} />
-          <Route path="/create" exact component={CreateTodo} />
+          <Route path="/edit/:id" exact component={Edit} />
+          <Route path="/create" exact component={Create} />
         </div>
       </Router>
     );

@@ -119,7 +119,7 @@ export default class Create extends Component {
                 name="priorityOptions"
                 id="priorityHigh"
                 value="High"
-                checked={this.state.priority === "high"}
+                checked={this.state.priority === "High"}
                 onChange={this.onChangePriority}
               />
               <label className="form-check-label">high</label>

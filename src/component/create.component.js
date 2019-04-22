@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios"; //Use axios to  send HTTP requests to the back-end
 
 export default class Create extends Component {
   constructor(props) {
@@ -45,10 +46,16 @@ export default class Create extends Component {
   onSubmit(e) {
     e.preventDefault(); //Funtion used to ensure that the default HTML form submit behaviour is prevented
 
-    console.log(`Form submitted:`);
-    console.log(`Description: ${this.state.description}`);
-    console.log(`Responsible: ${this.state.responsible}`);
-    console.log(`Priority: ${this.state.priority}`);
+    const newItem = {
+      description: this.state.description,
+      responsible: this.state.responsible,
+      priority: this.state.priority,
+      completed: this.state.completed
+    };
+
+    //Using the axios POST method to send a HTTP POST request to the back-end endpoint "add"
+    axios.post('http://localhost:4000/todos/add', newItem).then(res => console.log("res.data"));
+
 
     this.setState({
       //To make sure that the form is resetted
